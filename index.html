@@ -1,8 +1,18 @@
-<html>
+<!DOCTYPE html>
+<!--[if lte IE 6 ]>
+<html class="ie ie6 lte_ie7 lte_ie8 lte_ie9" lang="zh-CN"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7 lte_ie7 lte_ie8 lte_ie9" lang="zh-CN"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8 lte_ie8 lte_ie9" lang="zh-CN"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9 lte_ie9" lang="zh-CN"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="zh-CN"> <!--<![endif]-->
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Input</title>
+    <title>Input åº•éƒ¨</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="renderer" content="webkit">
@@ -10,7 +20,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-	<style>
+    <style>
 		header, footer, main {
 			display: block;
 		}
@@ -38,13 +48,13 @@
 		}
 
 		main {
-			/* main¾ø¶Ô¶¨Î»£¬½øÐÐÄÚ²¿¹ö¶¯ */
+			/* mainç»å¯¹å®šä½ï¼Œè¿›è¡Œå†…éƒ¨æ»šåŠ¨ */
 			position: absolute;
 			top: 50px;
 			bottom: 34px;
-			/* Ê¹Ö®¿ÉÒÔ¹ö¶¯ */
+			/* ä½¿ä¹‹å¯ä»¥æ»šåŠ¨ */
 			overflow-y: scroll;
-			/* Ôö¼Ó¸ÃÊôÐÔ£¬¿ÉÒÔÔö¼Óµ¯ÐÔ */
+			/* å¢žåŠ è¯¥å±žæ€§ï¼Œå¯ä»¥å¢žåŠ å¼¹æ€§ */
 			-webkit-overflow-scrolling: touch;
 			width: 100%;
 		}
@@ -56,16 +66,16 @@
 	</style>
 </head>
 <body>
-<body class="layout-scroll-fixed">
-    <!-- fixed¶¨Î»µÄÍ·²¿ -->
+    <body class="layout-scroll-fixed">
+    <!-- fixedå®šä½çš„å¤´éƒ¨ -->
     <header>
         
     </header>
     
-    <!-- ¿ÉÒÔ¹ö¶¯µÄÇøÓò -->
+    <!-- å¯ä»¥æ»šåŠ¨çš„åŒºåŸŸ -->
     <main>
         <div class="content">
-        <!-- ÄÚÈÝÔÚÕâÀï... -->
+        <!-- å†…å®¹åœ¨è¿™é‡Œ... -->
 			<p>================</p>
 			<p>================</p>
 			<p>================</p>
@@ -137,14 +147,14 @@
         </div>
     </main>
     
-    <!-- fixed¶¨Î»µÄµ×²¿ -->
+    <!-- fixedå®šä½çš„åº•éƒ¨ -->
     <footer>
         <input type="text" placeholder="Footer..."/>
-        <button class="submit">Ìá½»</button>
+        <button class="submit">æäº¤</button>
     </footer>
 	
 	<script>
-		// ·ÀÖ¹ÄÚÈÝÇøÓò¹öµ½µ×ºóÒýÆðÒ³ÃæÕûÌåµÄ¹ö¶¯
+		// é˜²æ­¢å†…å®¹åŒºåŸŸæ»šåˆ°åº•åŽå¼•èµ·é¡µé¢æ•´ä½“çš„æ»šåŠ¨
 		var content = document.querySelector('main');
 		var startY;
 
@@ -153,32 +163,31 @@
 		});
 
 		content.addEventListener('touchmove', function (e) {
-			// ¸ßÎ»±íÊ¾ÏòÉÏ¹ö¶¯
-			// µ×Î»±íÊ¾ÏòÏÂ¹ö¶¯
-			// 1ÈÝÐí 0½ûÖ¹
+			// é«˜ä½è¡¨ç¤ºå‘ä¸Šæ»šåŠ¨
+			// åº•ä½è¡¨ç¤ºå‘ä¸‹æ»šåŠ¨
+			// 1å®¹è®¸ 0ç¦æ­¢
 			var status = '11';
 			var ele = this;
 
 			var currentY = e.touches[0].clientY;
 
 			if (ele.scrollTop === 0) {
-				// Èç¹ûÄÚÈÝÐ¡ÓÚÈÝÆ÷ÔòÍ¬Ê±½ûÖ¹ÉÏÏÂ¹ö¶¯
+				// å¦‚æžœå†…å®¹å°äºŽå®¹å™¨åˆ™åŒæ—¶ç¦æ­¢ä¸Šä¸‹æ»šåŠ¨
 				status = ele.offsetHeight >= ele.scrollHeight ? '00' : '01';
 			} else if (ele.scrollTop + ele.offsetHeight >= ele.scrollHeight) {
-				// ÒÑ¾­¹öµ½µ×²¿ÁËÖ»ÄÜÏòÉÏ¹ö¶¯
+				// å·²ç»æ»šåˆ°åº•éƒ¨äº†åªèƒ½å‘ä¸Šæ»šåŠ¨
 				status = '10';
 			}
 
 			if (status != '11') {
-				// ÅÐ¶Ïµ±Ç°µÄ¹ö¶¯·½Ïò
+				// åˆ¤æ–­å½“å‰çš„æ»šåŠ¨æ–¹å‘
 				var direction = currentY - startY > 0 ? '10' : '01';
-				// ²Ù×÷·½ÏòºÍµ±Ç°ÔÊÐí×´Ì¬ÇóÓëÔËËã£¬ÔËËã½á¹ûÎª0£¬¾ÍËµÃ÷²»ÔÊÐí¸Ã·½Ïò¹ö¶¯£¬Ôò½ûÖ¹Ä¬ÈÏÊÂ¼þ£¬×èÖ¹¹ö¶¯
+				// æ“ä½œæ–¹å‘å’Œå½“å‰å…è®¸çŠ¶æ€æ±‚ä¸Žè¿ç®—ï¼Œè¿ç®—ç»“æžœä¸º0ï¼Œå°±è¯´æ˜Žä¸å…è®¸è¯¥æ–¹å‘æ»šåŠ¨ï¼Œåˆ™ç¦æ­¢é»˜è®¤äº‹ä»¶ï¼Œé˜»æ­¢æ»šåŠ¨
 				if (!(parseInt(status, 2) & parseInt(direction, 2))) {
 					stopEvent(e);
 				}
 			}
 		});
 	</script>
-</body>
 </body>
 </html>
