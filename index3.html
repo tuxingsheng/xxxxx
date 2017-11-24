@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lte IE 6 ]>
+<html class="ie ie6 lte_ie7 lte_ie8 lte_ie9" lang="zh-CN"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7 lte_ie7 lte_ie8 lte_ie9" lang="zh-CN"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8 lte_ie8 lte_ie9" lang="zh-CN"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9 lte_ie9" lang="zh-CN"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="zh-CN"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Input 底部</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="renderer" content="webkit">
+    <meta name="author" content="xingsheng.tu"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <style>
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			margin:0;
+			padding: 0;
+		}
+
+		html {
+			-ms-touch-action: none;
+		}
+
+		body,ul,li {
+			padding: 0;
+			margin: 0;
+			border: 0;
+		}
+		.header {
+			width: 100%;
+			height: 40px;  
+			background-color: red;
+		}
+		.body {
+			width: 100%;
+			overflow: auto;
+		}
+		.footer {
+			width: 100%;
+			height: 30px;
+			position: fixed;
+			bottom:0;
+			left:0;
+			right:0;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+    <div class="header" id="header">xxxxxxxxx</div>
+	<div class="body" id="body">
+		<p>ooooooooooooooooooooooo</p>
+	</div>
+	<div class="footer" id="footer">
+		<input type="text" id="input">
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+	<script>
+		$('input').on('focus', function(e){
+			var winobj = $(window),
+                scope = this,
+                agent = navigator.userAgent.toLowerCase();
+            setTimeout(function () {
+                if (agent.indexOf('safari') != -1 && agent.indexOf('mqqbrowser') == -1
+                    && agent.indexOf('coast') == -1 && agent.indexOf('android') == -1
+                    && agent.indexOf('linux') == -1 && agent.indexOf('firefox') == -1) {//safra浏览器
+                    window.scrollTo(0, 1000000);//先滚动到最底部，再用scrollY得到当前的值，必须延迟 否则拿到的就是1000000
+                    setTimeout(function(){
+                        window.scrollTo(0, window.scrollY - 45);//45像素 所有浏览器都是这么高
+                    }, 50)
+                } else {//其他浏览器
+                    window.scrollTo(0, 1000000);
+                    // window.scrollTo(0, ++this.scrollNum);
+                }
+            }, 200);
+		});
+	</script>
+</body>
+</html>
